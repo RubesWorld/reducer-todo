@@ -5,14 +5,13 @@ import { TextField, Button } from "@material-ui/core";
 const initialValues = {
   title: "",
 };
-
 function ToDoForm(props) {
   const { handleItemAdd, clearTask } = props;
-  const [values, setValues] = useState(initialValues);
+  const [values, setValues] = useState("");
 
   const handleChanges = (e) => {
     setValues({
-      task: e.target.value,
+      item: e.target.value,
       id: Date.now(),
       completed: false,
     });
@@ -21,7 +20,7 @@ function ToDoForm(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     handleItemAdd(values);
-    setValues(initialValues);
+    setValues("");
     console.log("this is values", values);
   }; // good
 
@@ -41,7 +40,7 @@ function ToDoForm(props) {
           label="Enter New Todo"
           variant="outlined"
           onChange={handleChanges}
-          value={values.title}
+          value={values.task}
         ></TextField>
         <Button type="submit" variant="contained" color="secondary">
           Add Todo!

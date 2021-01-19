@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer, useState, useEffect } from "react";
 import "./app.css";
 //import components
 import ToDoList from "./components/TodoList";
@@ -7,7 +7,7 @@ import ToDoForm from "./components/ToDoForm";
 //styles import
 import { Typography, Input } from "@material-ui/core";
 
-//import reducer
+//import reducer b+ actions
 import { initialState, reducer } from "./reducer";
 import { addTodoAction, toggleTaskAction, clearTaskAction } from "./actions";
 
@@ -20,11 +20,13 @@ function App() {
 
   const handleToggle = (id) => {
     dispatch(toggleTaskAction(id));
-  };
+  }; //good
 
   const clearTask = () => {
     dispatch(clearTaskAction());
-  };
+  }; //good
+
+  useEffect(() => {}, [state]);
 
   console.log(state);
   return (

@@ -1,15 +1,15 @@
 import { Typography } from "@material-ui/core";
-import React from "react";
+import React, { useEffect } from "react";
 import ToDo from "./ToDo";
 
 function TodoList(props) {
   const { task, handleToggle } = props;
   //   console.log("how do i pass this in?", props.task);
-  console.log("new list", task);
+  useEffect(() => {}, [task]);
   return (
     <div>
-      {task.map((todo) => {
-        return <ToDo key={todo.id} task={todo} handleToggle={handleToggle} />;
+      {task.map((todo, i) => {
+        return <ToDo key={i} task={todo} handleToggle={handleToggle} />;
       })}
     </div>
   );

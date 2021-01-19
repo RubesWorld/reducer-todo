@@ -12,12 +12,22 @@ export const initialState = [
     id: 234325234,
     completed: false,
   },
+  {
+    item: "shave",
+    id: 543534325234,
+    completed: false,
+  },
 ];
 
 //create the reducer function that takes state and action
 export const reducer = (state, action) => {
   switch (action.type) {
     case ADD_TODO: //name to add todo
+      // const newTodo = {
+      //     id: Date.now(),
+      //     completed: false,
+      //     title: action.payload
+      // };
       return [...state, action.payload]; //return a copy of the state & the action given
     case TOGGLE_TASK: //name to swap completed
       return state.map((item) => {
