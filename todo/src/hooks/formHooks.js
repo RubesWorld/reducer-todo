@@ -6,16 +6,13 @@ const useForm = (initialValues) => {
   const handleChanges = (e) => {
     setValues({
       ...values,
-      [e.target.name]: e.target.value,
+      task: e.target.value,
+      id: Date.now(),
+      completed: false,
     });
   };
 
-  const clearForm = (e) => {
-    e.preventDefault();
-    setValues(initialValues);
-  };
-
-  return [values, handleChanges, clearForm];
+  return [values, handleChanges];
 };
 
 export default useForm;

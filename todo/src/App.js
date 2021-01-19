@@ -12,11 +12,11 @@ import { initialState, reducer } from "./reducer";
 import { addTodoAction, toggleTaskAction, clearTaskAction } from "./actions";
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState); //good
 
   const handleItemAdd = (item) => {
     dispatch(addTodoAction(item));
-  };
+  }; //good
 
   const handleToggle = (id) => {
     dispatch(toggleTaskAction(id));
@@ -31,11 +31,7 @@ function App() {
     <div className="App">
       <div className="main-div">
         <Typography variant="h2">Reducer ToDo Application!</Typography>
-        <ToDoForm
-          handleItemAdd={handleItemAdd}
-          clearTask={clearTask}
-          task={state}
-        />
+        <ToDoForm handleItemAdd={handleItemAdd} clearTask={clearTask} />
         <ToDoList handleToggle={handleToggle} task={state} />
       </div>
     </div>
